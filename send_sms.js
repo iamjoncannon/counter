@@ -1,4 +1,4 @@
-const auth = require('./secrets.json')
+const auth = require('./../secrets.json')
 const accountSid = auth.twilio_accountSid;
 const authToken = auth.twilio_authToken;
 const client = require('twilio')(accountSid, authToken);
