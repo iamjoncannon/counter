@@ -13,12 +13,10 @@ app.set('trust proxy', true)
 
 app.get('*', (req, res) => {
 
-  console.log(req.ip)
-  console.log(req.ips)
-  console.log(req.connection.remoteAddress)
-  console.log(req.headers)
+	const ip = req.headers['x-real-ip'] 
+  console.log(req.headers['x-real-ip'])
   // sendText('hitting')
-  console.log(require('geoip-lite').lookup(req.ip))
+  console.log(require('geoip-lite').lookup(ip))
 
   res.end()
 }) // Send index.html for any other requests
