@@ -17,7 +17,7 @@ app.get('*', (req, res) => {
 	console.log('ip of request ', req.headers['x-real-ip'])
 	const geoloc = require('geoip-lite').lookup(ip) 
 	console.log('visited from ', geoloc.city, geoloc.region, geoloc.country)
-	const textMessage = `visited from  ${geoloc.city}, ${geoloc.region}, ${geoloc.country}`
+	const textMessage = `visited from ${ip}: ${geoloc.city}, ${geoloc.region}, ${geoloc.country}`
 	sendText(textMessage)
 
   res.end()
