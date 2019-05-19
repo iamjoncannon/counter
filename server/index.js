@@ -14,9 +14,10 @@ app.set('trust proxy', true)
 app.get('*', (req, res) => {
 
 	const ip = req.headers['x-real-ip'] 
-  console.log(req.headers['x-real-ip'])
-  // sendText('hitting')
-  console.log(require('geoip-lite').lookup(ip))
+	console.log('ip of request ', req.headers['x-real-ip'])
+	const geoloc = require('geoip-lite').lookup(ip) 
+	// sendText('hitting')
+	console.log('visited from ', geoloc.city, geoloc.region, geoloc.country, )
 
   res.end()
 }) // Send index.html for any other requests
