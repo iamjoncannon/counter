@@ -14,6 +14,9 @@ app.set('trust proxy', true)
 app.get('*', (req, res) => {
 
   console.log(req.ip)
+  console.log(req.ips)
+  console.log(req.connection.remoteAddress)
+  console.log(req.headers)
   // sendText('hitting')
   console.log(require('geoip-lite').lookup(req.ip))
 
