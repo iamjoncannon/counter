@@ -11,17 +11,17 @@ app.use(express.urlencoded({ extended: true }))
 app.set('trust proxy', true)
 // static middleware
 
-app.get('/', (req, res) => {
+// app.get('/', (req, res) => {
 
-	const ip = req.headers['x-real-ip'] 
-	console.log('ip of request ', req.headers['x-real-ip'])
-	const geoloc = require('geoip-lite').lookup(ip) 
-	console.log('visited from ', geoloc.city, geoloc.region, geoloc.country)
-	const textMessage = `counter: ${ip}: ${geoloc.city}, ${geoloc.region}, ${geoloc.country}`
-	sendText(textMessage)
+// 	const ip = req.headers['x-real-ip'] 
+// 	console.log('ip of request ', req.headers['x-real-ip'])
+// 	const geoloc = require('geoip-lite').lookup(ip) 
+// 	console.log('visited from ', geoloc.city, geoloc.region, geoloc.country)
+// 	const textMessage = `counter: ${ip}: ${geoloc.city}, ${geoloc.region}, ${geoloc.country}`
+// 	sendText(textMessage)
 
-	res.end()
-}) 
+// 	res.end()
+// }) 
 
 app.get('/homepage', (req, res) => {
 
